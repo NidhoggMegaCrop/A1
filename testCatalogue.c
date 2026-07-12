@@ -43,6 +43,9 @@ static void myTestBalanceInsertLRandRL(void);
 static void myTestBalanceDeleteMany(void);
 static void myTestIndexingEmptyAndOutOfRange(void);
 static void myTestIndexingLargerCatalogue(void);
+static void myTestConstructEmpty(void);
+static void myTestConstructSingle(void);
+static void myTestConstructLargerAndFullyFunctional(void);
 
 int main(void) {
 	testBasicOperations();
@@ -69,6 +72,9 @@ int main(void) {
 	myTestIndexingLargerCatalogue();
 
 	testConstruct();
+	myTestConstructEmpty();
+	myTestConstructSingle();
+	myTestConstructLargerAndFullyFunctional();
 
 	printf("All basic tests passed!\n");
 }
@@ -586,6 +592,88 @@ static void testConstruct(void) {
 	Catalogue catalogue = CatalogueConstruct(courses, 5);
 	assert(CatalogueNumCourses(catalogue) == 5);
 	assert(isHeightBalanced(catalogue->tree));
+
+	CatalogueFree(catalogue);
+}
+
+// My own test: CatalogueConstruct on an empty array should produce a
+// valid, empty catalogue.
+static void myTestConstructEmpty(void) {
+	Catalogue catalogue = CatalogueConstruct(NULL, 0);
+	assert(CatalogueNumCourses(catalogue) == 0);
+	checkPrint(catalogue, "{}");
+	CatalogueFree(catalogue);
+}
+
+// My own test: CatalogueConstruct on a single-course array.
+static void myTestConstructSingle(void) {
+	struct course courses[] = {
+		{2521, "Data Structures and Algorithms", 6},
+	};
+	Catalogue catalogue = CatalogueConstruct(courses, 1);
+	assert(CatalogueNumCourses(catalogue) == 1);
+	assert(isHeightBalanced(catalogue->tree));
+	assert(CatalogueFind(catalogue, 2521).code == 2521);
+	CatalogueFree(catalogue);
+}
+
+// My own test: CatalogueConstruct on a larger array must not modify the
+// input array, must produce a height-balanced tree, and every
+// operation from earlier parts must work correctly on the result
+// (find, closest, level order, get range, indexing, insert, delete).
+static void myTestConstructLargerAndFullyFunctional(void) {
+	struct course courses[] = {
+		{1511, "Programming Fundamentals", 6},
+		{1521, "Computer Systems Fundamentals", 6},
+		{1531, "Web Front-End Programming", 6},
+		{2521, "Data Structures and Algorithms", 6},
+		{3121, "Algorithm Design and Analysis", 6},
+		{3311, "Database Systems", 6},
+		{3331, "Applied Cryptography", 6},
+		{3821, "Cloud Computing and Big Data Systems", 6},
+	};
+	int n = sizeof(courses) / sizeof(courses[0]);
+	struct course coursesCopy[8];
+	memcpy(coursesCopy, courses, sizeof(courses));
+
+	Catalogue catalogue = CatalogueConstruct(courses, n);
+
+	// Input array must not be modified
+	for (int i = 0; i < n; i++) {
+		assert(courses[i].code == coursesCopy[i].code);
+		assert(strcmp(courses[i].name, coursesCopy[i].name) == 0);
+		assert(courses[i].creditPoints == coursesCopy[i].creditPoints);
+	}
+
+	assert(CatalogueNumCourses(catalogue) == n);
+	assert(isHeightBalanced(catalogue->tree));
+
+	// CatalogueFind / CatalogueAtIndex / CatalogueIndexOf agree with
+	// the original sorted order
+	for (int i = 0; i < n; i++) {
+		assert(CatalogueFind(catalogue, courses[i].code).code == courses[i].code);
+		assert(CatalogueAtIndex(catalogue, i).code == courses[i].code);
+		assert(CatalogueIndexOf(catalogue, courses[i].code) == i);
+	}
+
+	// CatalogueClosest
+	assert(CatalogueClosest(catalogue, 3800).code == 3821);
+
+	// CatalogueGetRange
+	struct course result[8];
+	int numCourses = CatalogueGetRange(catalogue, 1500, 2600, result);
+	assert(numCourses == 4);
+	assert(result[3].code == 2521);
+
+	// Insertion and deletion must keep the tree balanced afterwards
+	CatalogueInsert(catalogue, 4141, "Ethical Hacking", 6);
+	assert(isHeightBalanced(catalogue->tree));
+	assert(CatalogueNumCourses(catalogue) == n + 1);
+
+	CatalogueDelete(catalogue, 1511);
+	assert(isHeightBalanced(catalogue->tree));
+	assert(CatalogueFind(catalogue, 1511).code == COURSE_UNDEFINED);
+	assert(CatalogueNumCourses(catalogue) == n);
 
 	CatalogueFree(catalogue);
 }

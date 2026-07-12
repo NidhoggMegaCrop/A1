@@ -330,9 +330,24 @@ int CatalogueCountLower(Catalogue catalogue, int code) {
 ////////////////////////////////////////////////////////////////////////
 // Efficient Construction
 
+// Builds a height-balanced subtree from courses[lo..hi] (inclusive),
+// which must be sorted in ascending order by code.
+static struct node *buildBalanced(struct course courses[], int lo, int hi) {
+	if (lo > hi) return NULL;
+	int mid = lo + (hi - lo) / 2;
+	struct node *n = newNode(courses[mid].code, courses[mid].name,
+	                          courses[mid].creditPoints);
+	n->left = buildBalanced(courses, lo, mid - 1);
+	n->right = buildBalanced(courses, mid + 1, hi);
+	updateNode(n);
+	return n;
+}
+
 Catalogue CatalogueConstruct(struct course courses[], int size) {
-	// TODO
-	return NULL;
+	Catalogue catalogue = CatalogueNew();
+	catalogue->tree = buildBalanced(courses, 0, size - 1);
+	catalogue->numCourses = size;
+	return catalogue;
 }
 
 ////////////////////////////////////////////////////////////////////////
