@@ -25,6 +25,7 @@ static struct node *newNode(int code, char *name, int creditPoints) {
 	n->course.creditPoints = creditPoints;
 	n->left = NULL;
 	n->right = NULL;
+	n->height = 0;
 	return n;
 }
 
@@ -34,6 +35,62 @@ static void freeTree(struct node *n) {
 	freeTree(n->right);
 	free(n);
 }
+
+////////////////////////////////////////////////////////////////////////
+// AVL Balancing Helpers
+
+static int height(struct node *n) {
+	return n == NULL ? -1 : n->height;
+}
+
+static void updateHeight(struct node *n) {
+	int lh = height(n->left);
+	int rh = height(n->right);
+	n->height = 1 + (lh > rh ? lh : rh);
+}
+
+static int balanceFactor(struct node *n) {
+	return height(n->left) - height(n->right);
+}
+
+static struct node *rotateRight(struct node *y) {
+	struct node *x = y->left;
+	y->left = x->right;
+	x->right = y;
+	updateHeight(y);
+	updateHeight(x);
+	return x;
+}
+
+static struct node *rotateLeft(struct node *x) {
+	struct node *y = x->right;
+	x->right = y->left;
+	y->left = x;
+	updateHeight(x);
+	updateHeight(y);
+	return y;
+}
+
+// Restores the height-balance property of n assuming both of its
+// subtrees are already height-balanced, and updates n's height.
+static struct node *rebalance(struct node *n) {
+	updateHeight(n);
+	int bf = balanceFactor(n);
+	if (bf > 1) {
+		if (balanceFactor(n->left) < 0) {
+			n->left = rotateLeft(n->left);
+		}
+		return rotateRight(n);
+	} else if (bf < -1) {
+		if (balanceFactor(n->right) > 0) {
+			n->right = rotateRight(n->right);
+		}
+		return rotateLeft(n);
+	}
+	return n;
+}
+
+////////////////////////////////////////////////////////////////////////
 
 static struct node *insertNode(struct node *n, int code, char *name,
                                 int creditPoints, bool *inserted) {
@@ -45,8 +102,10 @@ static struct node *insertNode(struct node *n, int code, char *name,
 		n->left = insertNode(n->left, code, name, creditPoints, inserted);
 	} else if (code > n->course.code) {
 		n->right = insertNode(n->right, code, name, creditPoints, inserted);
+	} else {
+		return n;
 	}
-	return n;
+	return rebalance(n);
 }
 
 static struct node *minNode(struct node *n) {
@@ -77,7 +136,7 @@ static struct node *deleteNode(struct node *n, int code, bool *deleted) {
 			n->right = deleteNode(n->right, succ->course.code, &discard);
 		}
 	}
-	return n;
+	return rebalance(n);
 }
 
 static struct node *findNode(struct node *n, int code) {
