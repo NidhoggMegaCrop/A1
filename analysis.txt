@@ -13,29 +13,42 @@ NOTE:
      CatalogueClosest
 --------------------------
 
-Worst-case time complexity:
+Worst-case time complexity: O(h)
 
 Explanation:
-
-
+The implementation walks a single root-to-leaf path, moving left or
+right based on a comparison with targetCode, exactly like a BST search.
+At each node visited it does O(1) work to update the best course seen
+so far. Since at most one node per level is visited, the total work is
+proportional to the height of the tree, h.
 
 --------------------------
     CatalogueLevelOrder
 --------------------------
 
-Worst-case time complexity:
+Worst-case time complexity: O(n)
 
 Explanation:
-
-
+Every node is enqueued and dequeued exactly once, and each of those
+operations is O(1) (array-based queue with an index that only moves
+forward). Since there are n nodes in total, the overall time is O(n).
 
 --------------------------
      CatalogueGetRange
 --------------------------
 
-Worst-case time complexity:
+Worst-case time complexity: O(h + k)
 
 Explanation:
+The recursion only descends into the left subtree when the current
+node's code is greater than lowerCode, and only descends into the
+right subtree when the current node's code is less than upperCode.
+This means any subtree that lies entirely outside [lowerCode,
+upperCode] is skipped in O(1) time rather than being fully traversed.
+The recursion therefore does O(1) work at each node on the boundary
+paths (bounded by the height h) plus O(1) work for each of the k
+courses that fall inside the range and get copied into the output
+array, giving a total of O(h + k).
 
 
 
