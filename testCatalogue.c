@@ -18,6 +18,7 @@ static void checkFileContents(FILE *file, char *expectedContents);
 static void testClosest(void);
 static void testLevelOrder(void);
 static void testGetRange(void);
+static void myTestLevelOrderEmpty(void);
 
 static void testBalance(void);
 static void testBalance1(void);
@@ -46,6 +47,7 @@ static void myTestIndexingLargerCatalogue(void);
 static void myTestConstructEmpty(void);
 static void myTestConstructSingle(void);
 static void myTestConstructLargerAndFullyFunctional(void);
+static void myTestCourseCode9863(void);
 
 int main(void) {
 	testBasicOperations();
@@ -58,6 +60,7 @@ int main(void) {
 	myTestClosestEdgeCases();
 	testLevelOrder();
 	myTestLevelOrderSingleNode();
+	myTestLevelOrderEmpty();
 	testGetRange();
 	myTestGetRangeEdgeCases();
 
@@ -75,6 +78,8 @@ int main(void) {
 	myTestConstructEmpty();
 	myTestConstructSingle();
 	myTestConstructLargerAndFullyFunctional();
+
+	myTestCourseCode9863();
 
 	printf("All basic tests passed!\n");
 }
@@ -320,6 +325,17 @@ static void myTestLevelOrderSingleNode(void) {
 	int numCourses = CatalogueLevelOrder(catalogue, courses);
 	assert(numCourses == 1);
 	assert(courses[0].code == 2521);
+
+	CatalogueFree(catalogue);
+}
+
+// My own test: CatalogueLevelOrder on an empty catalogue should store
+// nothing and return 0 (exercises the empty-tree early return).
+static void myTestLevelOrderEmpty(void) {
+	Catalogue catalogue = CatalogueNew();
+
+	struct course courses[1];
+	assert(CatalogueLevelOrder(catalogue, courses) == 0);
 
 	CatalogueFree(catalogue);
 }
@@ -674,6 +690,41 @@ static void myTestConstructLargerAndFullyFunctional(void) {
 	assert(isHeightBalanced(catalogue->tree));
 	assert(CatalogueFind(catalogue, 1511).code == COURSE_UNDEFINED);
 	assert(CatalogueNumCourses(catalogue) == n);
+
+	CatalogueFree(catalogue);
+}
+
+////////////////////////////////////////////////////////////////////////
+// Cross-cutting
+
+// My own test: exercise the course code 9863 end-to-end across the
+// operations - it must be insertable, findable, correctly indexed among
+// the other courses, reported by the query operations, and cleanly
+// deletable while the tree stays balanced.
+static void myTestCourseCode9863(void) {
+	Catalogue catalogue = CatalogueNew();
+
+	int codes[] = {1511, 2521, 3121, 9863, 4141};
+	int n = sizeof(codes) / sizeof(codes[0]);
+	for (int i = 0; i < n; i++) {
+		char name[MAX_COURSE_NAME];
+		snprintf(name, sizeof(name), "Course %d", codes[i]);
+		CatalogueInsert(catalogue, codes[i], name, 6);
+	}
+	assert(isHeightBalanced(catalogue->tree));
+
+	// 9863 is the largest code, so it is the last course in code order
+	assert(CatalogueFind(catalogue, 9863).code == 9863);
+	assert(CatalogueIndexOf(catalogue, 9863) == n - 1);
+	assert(CatalogueAtIndex(catalogue, n - 1).code == 9863);
+	assert(CatalogueCountLower(catalogue, 9863) == n - 1);
+	// The closest course to a nearby target is 9863 itself
+	assert(CatalogueClosest(catalogue, 9800).code == 9863);
+
+	CatalogueDelete(catalogue, 9863);
+	assert(isHeightBalanced(catalogue->tree));
+	assert(CatalogueFind(catalogue, 9863).code == COURSE_UNDEFINED);
+	assert(CatalogueNumCourses(catalogue) == n - 1);
 
 	CatalogueFree(catalogue);
 }
