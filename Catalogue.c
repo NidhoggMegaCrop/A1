@@ -1,6 +1,7 @@
 // COMP2521 - Assignment 1
 // Implementation of the Course Catalogue ADT
 
+#include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
