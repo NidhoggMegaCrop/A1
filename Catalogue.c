@@ -151,19 +151,67 @@ void CataloguePrint(Catalogue catalogue, FILE *out) {
 // Course Queries
 
 struct course CatalogueClosest(Catalogue catalogue, int targetCode) {
-	// TODO
-	return (struct course){COURSE_UNDEFINED, "", 0};
+	struct node *n = catalogue->tree;
+	struct node *best = n;
+	while (n != NULL) {
+		int diff = abs(n->course.code - targetCode);
+		int bestDiff = abs(best->course.code - targetCode);
+		if (diff < bestDiff ||
+		    (diff == bestDiff && n->course.code < best->course.code)) {
+			best = n;
+		}
+		if (targetCode < n->course.code) {
+			n = n->left;
+		} else if (targetCode > n->course.code) {
+			n = n->right;
+		} else {
+			break;
+		}
+	}
+	return best->course;
 }
 
 int CatalogueLevelOrder(Catalogue catalogue, struct course courses[]) {
-	// TODO
-	return 0;
+	int n = catalogue->numCourses;
+	if (n == 0) return 0;
+
+	struct node **queue = malloc(n * sizeof(struct node *));
+	if (queue == NULL) {
+		fprintf(stderr, "error: out of memory\n");
+		exit(EXIT_FAILURE);
+	}
+
+	int front = 0, back = 0, count = 0;
+	queue[back++] = catalogue->tree;
+	while (front < back) {
+		struct node *curr = queue[front++];
+		courses[count++] = curr->course;
+		if (curr->left != NULL) queue[back++] = curr->left;
+		if (curr->right != NULL) queue[back++] = curr->right;
+	}
+
+	free(queue);
+	return count;
+}
+
+static int getRange(struct node *n, int lowerCode, int upperCode,
+                     struct course courses[], int count) {
+	if (n == NULL) return count;
+	if (n->course.code > lowerCode) {
+		count = getRange(n->left, lowerCode, upperCode, courses, count);
+	}
+	if (n->course.code >= lowerCode && n->course.code <= upperCode) {
+		courses[count++] = n->course;
+	}
+	if (n->course.code < upperCode) {
+		count = getRange(n->right, lowerCode, upperCode, courses, count);
+	}
+	return count;
 }
 
 int CatalogueGetRange(Catalogue catalogue, int lowerCode, int upperCode,
                       struct course courses[]) {
-	// TODO
-	return 0;
+	return getRange(catalogue->tree, lowerCode, upperCode, courses, 0);
 }
 
 ////////////////////////////////////////////////////////////////////////
