@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://cgi.cse.unsw.edu.au/~cs2521/26T2/assignments/ass1/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="./COMP2521 26T2 - Assignment 1_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./COMP2521 26T2 - Assignment 1_files/bootstrap-toc.min.css">
+
+    <link rel="stylesheet" href="./COMP2521 26T2 - Assignment 1_files/style.css">
+    
+    
+
+    <title>COMP2521 26T2 - 
+
+	Assignment 1
+
+</title>
+  <script type="text/javascript" async="" src="./COMP2521 26T2 - Assignment 1_files/MathJax.js.下载"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-test.mjx-test-display {display: table!important}
+.mjx-test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.mjx-test.mjx-test-default {display: block!important; clear: both}
+.mjx-ex-box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.mjx-test-inline .mjx-left-box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .mjx-right-box {display: inline-block; width: 0; float: right}
+.mjx-test-display .mjx-right-box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style></head>
+  <body class="d-flex flex-column" style="min-height: 100vh;" data-new-gr-c-s-check-loaded="14.1310.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none;"></div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light no-print" id="header-navbar">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="https://www.cse.unsw.edu.au/~cs2521/26T2/">COMP2521 26T2</a>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav mr-auto">
+            <!--
+            <li class="nav-item active"><a class="nav-link" href="#">Outline</a></li>
+            <li class="nav-item active"><a class="nav-link" href="#">Forum</a></li>
+            <li class="navbar-text px-2">|</li>
+            -->
+
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <main class="container" aria-label="Content" style="flex: 1; padding-top: 4rem;">
+      <header>
+        <h1 class="text-center">
+	Assignment 1
+</h1>
+        <h3 class="text-center">
+	Course Catalogue ADT
+</h3>
+        
+      </header>
+      <div class="text-justify mt-4">
+        
+
+<div style="text-align: justify;">
+
+<style>
+th {
+	text-align: left;
+}
+</style>
+
+<section class="exercise">
+<header><h3>Changelog</h3></header>
+<p>All important changes to the assignment specification and files will be listed here.</p>
+<ul class="text-left">
+	<li><code>[25/06 14:00]</code> Assignment released</li>
+	<li><code>[26/06 11:00]</code> Fixed incorrect test
+		<ul>
+			<li style="text-align: left;">
+				In the <code>testBasicOperations</code> function in <code>testCatalogue.c</code>, the string <code>"(1511, Programming Fundamentals, 6)"</code> should be removed from the <code>checkPrint</code> call.
+			</li>
+		</ul>
+	</li>
+	<li><code>[06/07 09:00]</code> Expanded Testing section</li>
+	<li><code>[08/07 12:15]</code> Added more description to Testing section</li>
+	<li><code>[09/07 15:25]</code> Added assumption for <code>CatalogueGetRange</code></li>
+</ul>
+</section>
+
+<section class="exercise">
+<header><h3>Aims</h3></header>
+<ul>
+	<li>To get practice with binary search trees</li>
+	<li>To implement an efficient binary search tree</li>
+	<li>To implement more challenging binary search tree operations</li>
+	<li>To get practice with time complexity analysis</li>
+</ul>
+</section>
+
+
+<section class="exercise">
+<header><h3>Admin</h3></header>
+<dl class="dl-horizontal">
+	<dt>Marks</dt>
+	<dd>contributes 15% towards your final mark (see Assessment section for more details)</dd>
+	<dt>How to submit</dt>
+	<dd>see the Submission section</dd>
+	<dt>Deadline to submit</dt>
+	<dd>8pm on Monday of Week 7</dd>
+	<dt>Late penalty</dt>
+	<dd>0.2% of the maximum mark per hour or part thereof deducted from the attained mark, submissions later than 5 days not accepted</dd>
+</dl>
+
+<div class="alert alert-light">
+	<b style="background-color: yellow;">Important:</b> You are required to make regular submissions. At minimum, you must submit after completing each part of the assignment.
+</div>
+</section>
+
+
+<section class="exercise">
+<header><h3>Prerequisite Knowledge</h3></header>
+<ul>
+	<li>Recursion</li>
+	<li>Analysis of algorithms</li>
+	<li>Abstract data types</li>
+	<li>Binary search trees</li>
+	<li>Balanced BSTs (including AVL Trees)</li>
+</ul>
+</section>
+
+
+<section class="exercise">
+<header><h3>Background</h3></header>
+
+<h4>University Course Catalogue</h4>
+
+<p>A university maintains a catalogue of courses. Each course has a unique course code and a name, and is worth a certain number of credit points. Students and administrators need to add courses, remove courses, search the catalogue, list courses in code order, find courses in a code range, and answer indexing queries efficiently.</p>
+
+<p>In this assignment, you will implement a Course Catalogue ADT. The catalogue will first be represented using a simple binary search tree and will later be upgraded to a height-balanced binary search tree. You will also augment the tree with additional data to support indexing operations and construct a balanced catalogue efficiently.</p>
+
+<h4>Course Representation</h4>
+
+<p>Each course is represented by the following structure:</p>
+
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w"> </span>
+<span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="n">MAX_COURSE_NAME</span><span class="p">];</span><span class="w"> </span>
+<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">creditPoints</span><span class="p">;</span><span class="w"> </span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Course codes are positive integers and are unique within a catalogue. Course names are non-empty strings whose length is less than <code>MAX_COURSE_NAME</code>. Credit points are positive integers.</p>
+
+<h4>Course Catalogue ADT</h4>
+
+<p>The Course Catalogue is an abstract data type. Users of the ADT interact with it only through the functions declared in <code>Catalogue.h</code>. The implementation details are hidden from ordinary users, although the supplied tests include <code>CatalogueStructs.h</code> so that the internal representation can be checked.</p>
+
+</section>
+
+
+<section class="exercise">
+<header><h3>Setting Up</h3></header>
+<p>Change into the directory you created for the assignment and run the following command:</p>
+
+<pre is="tty"><kbd is="sh">unzip <a href="https://cgi.cse.unsw.edu.au/~cs2521/26T2/ass/ass1/downloads/files.zip">/web/cs2521/26T2/ass/ass1/downloads/files.zip</a></kbd>
+</pre>
+
+<p>If you're working on your own machine, download <code>files.zip</code> by clicking on the above link and then unzip the downloaded file.</p>
+
+<p>You should now have the following files:</p>
+
+<dl class="dl-horizontal">
+	<dt><code>Makefile</code></dt>
+	<dd>a set of dependencies used to control compilation</dd>
+	<dt><code>course.h</code></dt>
+	<dd>definition of the course data type - <span style="background-color: #FFFF00"><b>cannot be modified</b></span></dd>
+	<dt><code>Catalogue.h</code></dt>
+	<dd>interface to the Course Catalogue ADT - <span style="background-color: #FFFF00"><b>cannot be modified</b></span></dd>
+	<dt><code>Catalogue.c</code></dt>
+	<dd>implementation of the Course Catalogue ADT (incomplete)</dd>
+	<dt><code>CatalogueStructs.h</code></dt>
+	<dd>definition of structs used in the Course Catalogue ADT (incomplete)</dd>
+	<dt><code>testCatalogue.c</code></dt>
+	<dd>a main program containing tests for the Course Catalogue ADT</dd>
+	<dt><code>analysis.txt</code></dt>
+	<dd>a template for you to enter your time complexity analysis for selected functions</dd>
+</dl>
+
+<h5>Data Structures</h5>
+
+<p>The Course Catalogue ADT must be implemented using a binary search tree.</p>
+
+<p>You must use the supplied structs and fields as follows:</p>
+
+<ul>
+	<li>You must use <code>struct node</code> for the binary search tree nodes</li>
+	<li>The courses in the catalogue must be stored in the <code>course</code> fields of each node</li>
+	<li>The <code>left</code> and <code>right</code> pointers should be used to connect a tree node to its left and right subtrees respectively. <b>These pointers must not be used for any other purpose.</b></li>
+	<li>The <code>tree</code> field of the <code>catalogue</code> struct must point to the root of the binary search tree</li>
+</ul>
+
+<p>Please note that all your code for implementing the Course Catalogue ADT must be placed in <code>Catalogue.c</code>, <i>except</i> the struct definitions which should be in <code>CatalogueStructs.h</code>.</p>
+
+<h5>Testing</h5>
+
+<p><code>testCatalogue.c</code> is a main program which contains tests for the Course Catalogue ADT. The tests use <code>assert</code>, which is a utility provided by <code>assert.h</code> which takes a condition (which is expected to be true) and terminates the program with an error message if the condition is false. If your code is correct, then all the assertions should pass and the program should exit normally.</p>
+
+<p>The provided tests in <code>testCatalogue.c</code> are very simple. In this assignment, you will need to add your own test cases in order to test edge cases and code paths which are not covered by the given tests. You will need to submit your tests and they will be marked based on their thoroughness. More details are in the Testing section.</p>
+
+</section>
+
+
+<section class="exercise with-self">
+<header><h3>Part 1: Basic Operations</h3></header>
+
+<p>In Part 1, you will implement some basic operations. Note that each of these operations has a time complexity requirement, which, if not met, may result in a loss of marks. In the time complexities below, <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">n</script> refers to the number of courses, and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-4" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-5" class="mjx-mrow"><span id="MJXc-Node-6" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">h</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>h</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">h</script> refers to the height of the underlying binary search tree.</p>
+
+<p>Note that a balanced binary search tree is not required at this stage.</p>
+
+<table class="mt-3 table table-sm table-bordered">
+	<tbody><tr>
+		<th>Function</th>
+		<th>Signature/Description</th>
+		<th>Required worst-case time complexity</th>
+	</tr>
+	<tr>
+		<td><code>CatalogueNew</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="n">Catalogue</span><span class="w"> </span><span class="nf">CatalogueNew</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+
+
+			Creates a new empty course catalogue.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-7" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-8" class="mjx-mrow"><span id="MJXc-Node-9" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-10" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-11" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.361em; padding-bottom: 0.361em;">1</span></span><span id="MJXc-Node-12" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-3">O(1)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueFree</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">CatalogueFree</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">);</span>
+</pre></div>
+
+
+			Frees all memory allocated to the catalogue.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-4-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-13" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-14" class="mjx-mrow"><span id="MJXc-Node-15" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-16" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-17" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-18" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-4">O(n)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueInsert</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">CatalogueInsert</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">,</span>
+<span class="w">                     </span><span class="kt">int</span><span class="w"> </span><span class="n">creditPoints</span><span class="p">)</span>
+</pre></div>
+
+
+			Inserts a course into the catalogue. Does nothing if a course with the given code already exists.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-5-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-19" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-20" class="mjx-mrow"><span id="MJXc-Node-21" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-22" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-23" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">h</span></span><span id="MJXc-Node-24" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>h</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-5">O(h)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueDelete</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">CatalogueDelete</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">);</span>
+</pre></div>
+
+
+			Deletes the course with the given code from the catalogue, if it exists.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-6-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-25" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-26" class="mjx-mrow"><span id="MJXc-Node-27" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-28" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-29" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">h</span></span><span id="MJXc-Node-30" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>h</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-6">O(h)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueNumCourses</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">CatalogueNumCourses</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">);</span>
+</pre></div>
+
+
+			Returns the number of courses in the catalogue.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-7-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-31" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-32" class="mjx-mrow"><span id="MJXc-Node-33" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-34" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-35" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.361em; padding-bottom: 0.361em;">1</span></span><span id="MJXc-Node-36" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-7">O(1)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueFind</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="n">CatalogueFind</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">);</span>
+</pre></div>
+
+
+			Returns the course with the given code, or <code>{COURSE_UNDEFINED, "", 0}</code> if no such course exists.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-8-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-37" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-38" class="mjx-mrow"><span id="MJXc-Node-39" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-40" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-41" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">h</span></span><span id="MJXc-Node-42" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>h</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-8">O(h)</script></td>
+	</tr>
+	<tr>
+		<td><code>CataloguePrint</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">CataloguePrint</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">out</span><span class="p">);</span>
+</pre></div>
+
+
+			<p>Prints the courses in the catalogue to a file. The courses should be printed in ascending course code order inside a pair of curly braces, with courses separated by a comma and space. Each course should be printed as <code>(code, name, creditPoints)</code>. <b>Do not print a newline.</b> <b>Do not use the backspace character (<code>'\b'</code>).</b></p>
+
+			<p>For example, if the catalogue is empty, the following should be printed:</p>
+<pre>{}
+</pre>
+			<p>For example, if the catalogue contains one course with code <code>1511</code>, name <code>Programming Fundamentals</code> worth 6 credit points, the following should be printed:</p>
+<pre>{(1511, Programming Fundamentals, 6)}
+</pre>
+
+			<p>For example, if the catalogue contains more courses:</p>
+<pre>{(1511, Programming Fundamentals, 6), (2521, Data Structures and Algorithms, 6), (3121, Algorithm Design and Analysis, 6)}
+</pre>
+			<div class="alert alert-success mt-3">
+				Use the <a href="https://linux.die.net/man/3/fprintf" target="_blank"><code>fprintf</code></a> function to print to a file.<br>
+				<code>fprintf</code> is like <code>printf</code>, except that the user can specify which file to print to via the first argument.<br>
+				Remember: <b>Do not use the backspace character (<code>'\b'</code>).</b>
+			</div>
+			<div class="alert alert-warning mt-3">
+				<b>Note:</b> The only library function you are allowed to use to implement this function is <code>fprintf</code>. All other library functions (e.g., <code>fseek</code>) are forbidden.
+			</div>
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-9-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-43" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-44" class="mjx-mrow"><span id="MJXc-Node-45" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-46" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-47" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-48" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-9">O(n)</script></td>
+	</tr>
+</tbody></table>
+
+<div class="alert alert-secondary mt-3">
+	<b>Remember:</b> You are required to submit your work after completing each part. Once you have completed Part 1, submit your work using <code>give</code> (see the Submission section).
+</div>
+
+</section>
+
+
+
+<section class="exercise with-self">
+<header><h3>Part 2: Course Queries</h3></header>
+
+<p>In Part 2, you will implement some operations for querying courses.</p>
+
+<p>Note that there is no specified time complexity requirement for these operations, but to get full marks, you must implement them as efficiently as possible. You are also required to analyse the time complexity of your solutions.</p>
+
+<p><b>Note:</b> None of these operations should modify the given catalogue.</p>
+
+<table class="mt-3 table table-sm table-bordered">
+	<tbody><tr>
+		<th>Function</th>
+		<th>Signature/Description</th>
+	</tr>
+	<tr>
+		<td><code>CatalogueClosest</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="n">CatalogueClosest</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">targetCode</span><span class="p">);</span>
+</pre></div>
+
+
+			Returns a course whose code has the minimum absolute difference from <code>targetCode</code>. On a tie, return the course with the smaller code. Assumes the catalogue is non-empty.
+		</td>
+	</tr>
+	<tr>
+		<td><code>CatalogueLevelOrder</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">CatalogueLevelOrder</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="n">courses</span><span class="p">[]);</span>
+</pre></div>
+
+
+			Stores all courses in the given <code>courses</code> array in level-order and returns the number of courses stored. Your implementation should use a queue-based traversal. Any helper data structure needed for this traversal must be implemented inside <code>Catalogue.c</code>.
+		</td>
+	</tr>
+	<tr>
+		<td><code>CatalogueGetRange</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">CatalogueGetRange</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lowerCode</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">upperCode</span><span class="p">,</span>
+<span class="w">                      </span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="n">courses</span><span class="p">[]);</span>
+</pre></div>
+
+
+			Stores all courses with codes in the range [<code>lowerCode</code>, <code>upperCode</code>] (inclusive) in ascending order in the given <code>courses</code> array and returns the number of courses stored. Assumes that the array is large enough to store all the courses. Assumes that <code>lowerCode</code> is less than or equal to <code>upperCode</code>.
+		</td>
+	</tr>
+</tbody></table>
+
+<h4>Examples</h4>
+
+<p>Suppose the catalogue contains the course codes 1511, 1521, 2521, 3121 and 3311, arranged like so:</p>
+
+<img src="./COMP2521 26T2 - Assignment 1_files/catalogue-part-2-ex.svg" class="w-35 center my-3">
+
+<ul>
+	<li><code>CatalogueClosest(catalogue, 2500)</code> should return the course with code 2521.</li>
+	<li><code>CatalogueClosest(catalogue, 2021)</code> should return the course with code 1521, because there is a tie between 1521 and 2521, and in the event of a tie, the course with the smaller code should be returned.</li>
+	<li><code>CatalogueLevelOrder(catalogue, courses)</code> should store the courses in the <code>courses</code> array in this course code order and return 5:
+<pre>[1521, 1511, 3121, 2521, 3311]
+</pre>
+	</li>
+	<li><code>CatalogueGetRange(catalogue, 1500, 3000, courses)</code> should store the courses 1511, 1521 and 2521 in the <code>courses</code> array and return 3.</li>
+</ul>
+
+<h4>Analysis</h4>
+
+<p>For each of the operations above, determine the worst-case time complexity of <b>your implementation</b>, and write your answers in <code>analysis.txt</code> along with an explanation of each answer.</p>
+
+<p>Your time complexities should be in big-O notation and should be in terms of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-10-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-49" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-50" class="mjx-mrow"><span id="MJXc-Node-51" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-10">n</script> and/or <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-11-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-52" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-53" class="mjx-mrow"><span id="MJXc-Node-54" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">h</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>h</mi></math></span></span><script type="math/tex" id="MathJax-Element-11">h</script>, where <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-12-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-55" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-56" class="mjx-mrow"><span id="MJXc-Node-57" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-12">n</script> is the number of courses in the catalogue, and <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-13-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-58" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-59" class="mjx-mrow"><span id="MJXc-Node-60" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">h</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>h</mi></math></span></span><script type="math/tex" id="MathJax-Element-13">h</script> is the height of the underlying tree. In addition, for <code>CatalogueGetRange</code>, your time complexity may also be in terms of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-14-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-61" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-62" class="mjx-mrow"><span id="MJXc-Node-63" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">k</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></span></span><script type="math/tex" id="MathJax-Element-14">k</script>, where <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-15-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-64" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-65" class="mjx-mrow"><span id="MJXc-Node-66" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">k</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></span></span><script type="math/tex" id="MathJax-Element-15">k</script> is the number of courses returned.</p>
+
+<div class="alert alert-secondary mt-3">
+	<b>Remember:</b> You are required to submit your work after completing each part. Once you have completed Part 2, submit your work using <code>give</code> (see the Submission section). 
+</div>
+
+</section>
+
+
+
+<section class="exercise with-self">
+<header><h3>Part 3: Balanced Catalogue</h3></header>
+
+<p>A binary search tree is only guaranteed to be efficient if it is balanced. In this part, you need to update your implementation so that every catalogue uses a height-balanced binary search tree.</p>
+
+<p>After you have updated your implementation:</p>
+<ul>
+	<li><code>CatalogueInsert</code> and <code>CatalogueDelete</code> must have a worst-case time complexity of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-16-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-67" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-68" class="mjx-mrow"><span id="MJXc-Node-69" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-70" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-71" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.412em; padding-bottom: 0.566em;">log</span></span><span id="MJXc-Node-72" class="mjx-mo"><span class="mjx-char"></span></span><span id="MJXc-Node-73" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-74" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-16">O(\log n)</script>.</li>
+	<li><code>CatalogueFind</code> and <code>CatalogueClosest</code> must have a worst-case time complexity of <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-17-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-75" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-76" class="mjx-mrow"><span id="MJXc-Node-77" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-78" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-79" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.412em; padding-bottom: 0.566em;">log</span></span><span id="MJXc-Node-80" class="mjx-mo"><span class="mjx-char"></span></span><span id="MJXc-Node-81" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-82" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-17">O(\log n)</script>.</li>
+	<li>The underlying tree must remain height-balanced after every insertion and removal.</li>
+	<li>Any catalogue returned by later parts must also be height-balanced.</li>
+</ul>
+
+<div class="alert alert-secondary mt-3">
+	<b>Remember:</b> You are required to submit your work after completing each part. Once you have completed Part 3, submit your work using <code>give</code> (see the Submission section). 
+</div>
+
+</section>
+
+
+
+<section class="exercise with-self">
+<header><h3>Part 4: Indexing Operations</h3></header>
+
+<p>In this part, you will implement some <i>indexing</i> operations.</p>
+
+<p>The <i>index</i> of a course in the catalogue is the index it would occupy if all the courses were stored in an array sorted by course code, starting from index 0. To implement these operations efficiently, you will need to augment your nodes with suitable data and maintain that data during insertion and deletion.</p>
+
+<table class="mt-3 table table-sm table-bordered">
+	<tbody><tr>
+		<th>Function</th>
+		<th>Signature/Description</th>
+		<th>Required worst-case time complexity</th>
+	</tr>
+	<tr>
+		<td><code>CatalogueAtIndex</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="n">CatalogueAtIndex</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span>
+<span class="w">                               </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span>
+</pre></div>
+
+
+			Returns the course at index, or <code>{COURSE_UNDEFINED, "", 0}</code> if index is outside <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-18-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-83" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-84" class="mjx-mrow"><span id="MJXc-Node-85" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">[</span></span><span id="MJXc-Node-86" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.361em; padding-bottom: 0.361em;">0</span></span><span id="MJXc-Node-87" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.151em; padding-bottom: 0.515em;">,</span></span><span id="MJXc-Node-88" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-89" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.31em; padding-bottom: 0.412em;">−</span></span><span id="MJXc-Node-90" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.361em; padding-bottom: 0.361em;">1</span></span><span id="MJXc-Node-91" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">]</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-18">[0, n - 1]</script>.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-19-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-92" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-93" class="mjx-mrow"><span id="MJXc-Node-94" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-95" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-96" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.412em; padding-bottom: 0.566em;">log</span></span><span id="MJXc-Node-97" class="mjx-mo"><span class="mjx-char"></span></span><span id="MJXc-Node-98" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-99" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-19">O(\log n)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueIndexOf</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">CatalogueIndexOf</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">);</span>
+</pre></div>
+
+
+			Returns the index of the course if it exists, and -1 otherwise.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-20-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-100" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-101" class="mjx-mrow"><span id="MJXc-Node-102" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-103" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-104" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.412em; padding-bottom: 0.566em;">log</span></span><span id="MJXc-Node-105" class="mjx-mo"><span class="mjx-char"></span></span><span id="MJXc-Node-106" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-107" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-20">O(\log n)</script></td>
+	</tr>
+	<tr>
+		<td><code>CatalogueCountLower</code></td>
+		<td>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">CatalogueCountLower</span><span class="p">(</span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">);</span>
+</pre></div>
+
+
+			Returns the number of courses whose code is strictly less than <code>code</code>, whether or not <code>code</code> itself exists.
+		</td>
+		<td><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-21-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;&amp;#x2061;&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="font-size: 122%; position: relative;"><span id="MJXc-Node-108" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-109" class="mjx-mrow"><span id="MJXc-Node-110" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.464em; padding-bottom: 0.31em;">O</span></span><span id="MJXc-Node-111" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">(</span></span><span id="MJXc-Node-112" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.412em; padding-bottom: 0.566em;">log</span></span><span id="MJXc-Node-113" class="mjx-mo"><span class="mjx-char"></span></span><span id="MJXc-Node-114" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.207em; padding-bottom: 0.31em;">n</span></span><span id="MJXc-Node-115" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.464em; padding-bottom: 0.566em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-21">O(\log n)</script></td>
+	</tr>
+</tbody></table>
+
+<h4>Examples</h4>
+
+<p>Suppose the catalogue contains the course codes 1511, 1521, 2521 and 3121. Then:</p>
+
+<ul>
+	<li><code>CatalogueAtIndex(catalogue, 0)</code> should return the course 1511.</li>
+	<li><code>CatalogueAtIndex(catalogue, 2)</code> should return the course 2521.</li>
+	<li><code>CatalogueIndexOf(catalogue, 3121)</code> should return 3.</li>
+	<li><code>CatalogueIndexOf(catalogue, 3311)</code> should return -1.</li>
+	<li><code>CatalogueCountLower(catalogue, 2500)</code> should return 2 because there are two course codes strictly less than 2500: 1511 and 1521.</li>
+</ul>
+
+<div class="alert alert-secondary mt-3">
+	<b>Remember:</b> You are required to submit your work after completing each part. Once you have completed Part 4, submit your work using <code>give</code> (see the Submission section). 
+</div>
+
+</section>
+
+
+
+<section class="exercise with-self">
+<header><h3>Part 5: Construction</h3></header>
+
+<p>Your task is to implement the following function:</p>
+
+<div class="highlight"><pre><span></span><span class="n">Catalogue</span><span class="w"> </span><span class="nf">CatalogueConstruct</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">course</span><span class="w"> </span><span class="n">courses</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</pre></div>
+
+
+<p>The function receives an array of distinct courses sorted in strictly ascending course-code order and constructs a new height-balanced catalogue containing exactly those courses.</p>
+
+<ul>
+	<li>The input array must not be modified.</li>
+	<li>All operations in previous parts should work correctly when used on the returned catalogue.</li>
+</ul>
+
+<p>To get full marks for this part, you must implement <code>CatalogueConstruct</code> as efficiently as possible. You must also analyse the worst-case time complexity of your solution in <code>analysis.txt</code>.</p>
+
+<h4>Example</h4>
+
+<p>Suppose you are given an array containing courses with codes:</p>
+
+<pre>[1511, 1521, 2521, 3121, 3311, 3331, 3821]
+</pre>
+
+<p>Then one valid catalogue (among many) that could be returned is:</p>
+
+<img src="./COMP2521 26T2 - Assignment 1_files/catalogue-construct-ex.svg" class="w-40 center">
+
+<div class="alert alert-secondary mt-3">
+	<b>Remember:</b> You are required to submit your work after completing each part. Once you have completed Part 5, submit your work using <code>give</code> (see the Submission section). 
+</div>
+
+</section>
+
+
+
+<style>
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+</style>
+
+
+<section class="exercise">
+<header><h3>Testing</h3></header>
+
+<p>We have provided a main program <code>testCatalogue.c</code> which contains basic test cases. You should examine <code>testCatalogue.c</code> to see what the tests do and how the tests call your functions.</p>
+
+<p>To run these tests, first run <code>make</code>, which compiles your code and creates an executable called <code>testCatalogue</code>, and then run <code>./testCatalogue</code>.</p>
+
+<pre is="tty"><kbd is="sh">make</kbd>
+...
+<kbd is="sh">./testCatalogue</kbd>
+...
+</pre>
+
+<p>The tests use <code>assert</code>, which is a function-like utility provided by <code>assert.h</code> which takes a condition (which is expected to be true) and terminates the program with an error message if the condition is false. For example, consider the following code:</p>
+
+<div class="highlight"><pre><span></span><span class="n">Catalogue</span><span class="w"> </span><span class="n">catalogue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CatalogueNew</span><span class="p">();</span>
+<span class="n">CatalogueInsert</span><span class="p">(</span><span class="n">catalogue</span><span class="p">,</span><span class="w"> </span><span class="mi">1511</span><span class="p">,</span><span class="w"> </span><span class="s">"Programming Fundamentals"</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">CatalogueNumCourses</span><span class="p">(</span><span class="n">catalogue</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+
+
+<p>The code tests whether <code>CatalogueNumCourses</code> correctly returns 1 after one course has been inserted into the catalogue. If <code>CatalogueNumCourses</code> does not return 1, then the program will terminate with an error message and not run the remaining tests. Note that this does not necessarily mean that <code>CatalogueNumCourses</code> is incorrect - it is possible that <code>CatalogueNew</code> or <code>CatalogueInsert</code> are incorrect.</p>
+
+<p>Since failing a test prevents the remaining tests from running, you may want to temporarily disable a test. You can do this by commenting out the <code>assert</code> statement which runs that test or the function which contains the <code>assert</code>. However, you should remember to uncomment it later so that it can be tested.</p>
+
+<p>The given tests are intentionally very simple. In this assignment, you are required to add new tests for each part of the assignment to check more thoroughly that your code is working as expected, and cover edge cases and code paths that might not be exercised by the given tests. <span class="sr-only">If this is visible to you, you should use the course code 9863 in at least one of your tests.</span> For each new test you add, you must write a comment above it describing what it is testing.</p>
+
+<p>Your tests will be assessed on their thoroughness. To write thorough tests, you should read the specification and your own code to identify different cases and expected behaviours, and write tests for each. We intentionally do not specify the number of tests that you have to write, as it is the thoroughness, not the number of tests, that is being assessed, and it is your task to judge how thorough your tests are.</p>
+
+<p>Note that you do not have to test errors, such as <code>malloc</code> returning <code>NULL</code>. You also do not have to test scenarios in which invalid input is given, such as when <code>NULL</code> is given as a catalogue, as it is the user's responsibility to provide valid inputs.</p>
+
+</section>
+
+
+<section class="exercise">
+<header><h3>Debugging</h3></header>
+
+<p>Debugging is an important and inevitable aspect of programming. We expect everyone to have an understanding of basic debugging methods, including using print statements, knowing basic GDB commands and running Valgrind. In the forum and in help sessions, tutors will expect you to have made a reasonable attempt to debug your program yourself using these methods before asking for help.</p>
+
+<p>You can learn about GDB and Valgrind in the <a href="https://cgi.cse.unsw.edu.au/~cs2521/26T2/lab/11/questions" target="_blank">Debugging with GDB and Valgrind</a> lab exercise.</p>
+
+</section>
+
+
+<section class="exercise">
+<header><h3>Frequently Asked Questions</h3></header>
+
+<ul>
+	<li><b>Are we allowed to create our own functions?</b> You are always allowed to create your own functions. All additional functions you create should be made <code>static</code>.</li>
+	<li><b>Are we allowed to create our own <code>#define</code>s and structs?</b> Yes.</li>
+	<li><b>Are we allowed to modify <code>Catalogue.h</code> in any way?</b> No.</li>
+	<li><b>Are we allowed to <code>#include</code> any other libraries?</b> No. All the libraries required for this assignment are provided already.</li>
+	<li><b>Are we allowed to change the signatures of the given functions?</b> No. If you change these, your code won't compile and we won't be able to test it.</li>
+	<li><b>What errors do we need to handle?</b> You should handle common errors such as <code>NULL</code> returned from <code>malloc</code> by printing an error message to <code>stderr</code> and terminating the program. You are not required to handle other errors.</li>
+	<li><b>Do we need to free memory in the event of an error?</b> No.</li>
+	<li><b>What invalid inputs do we need to handle?</b> You are not required to handle invalid inputs, such as <code>NULL</code> being passed in as a catalogue. It is the user's responsibility to provide valid inputs.</li>
+	<li><b>Are we allowed to share tests?</b> No. Testing is an important part of software development. Students that test their code more will likely have more correct code, so to ensure fairness, each student should independently develop their own tests.</li>
+</ul>
+</section>
+
+<section class="exercise">
+<header><h3>Submission</h3></header>
+
+<p>Submit via the command line using the <code>give</code> command:</p>
+
+<pre is="tty"><kbd is="sh">give cs2521 ass1 Catalogue.c CatalogueStructs.h analysis.txt testCatalogue.c</kbd>
+</pre>
+
+<p>You can also submit via <a href="https://cgi.cse.unsw.edu.au/~give/Student/give.php" target="_blank">give's web interface</a>. You can submit multiple times. Only your last submission will be marked. You can check the files you have submitted <a href="https://cgi.cse.unsw.edu.au/~cs2521/26T2/view/" target="_blank">here</a>.</p>
+
+<aside class="warning">
+	<p>After you submit, you must check that your submission was successful by going to your <a href="https://cgi.cse.unsw.edu.au/~cs2521/26T2/view/" target="_blank">submissions page</a>. Check that the timestamp is correct. If your submission does not appear under Last Submission or the timestamp is not correct, then resubmit.</p>
+</aside>
+
+<h5>Compilation</h5>
+
+<p>You must ensure that your final submission compiles on CSE machines. Submitting non-compiling code leads to extra administrative overhead and will result in a 10% penalty.</p>
+
+<p>Every time you make a submission, a dryrun test will be run on your code to check that it compiles. Please ensure that your final submission successfully compiles, even for parts that you have not completed.</p>
+
+</section>
+
+<section class="exercise">
+<header><h3>Assessment Criteria</h3></header>
+<p>This assignment will contribute 15% to your final mark.</p>
+
+<h4>Correctness</h4>
+
+<p><b>68%</b> of the marks for this assignment will be based on the correctness of your code, and will be mostly based on autotesting. Marks for correctness will be distributed as follows:</p>
+
+<table class="table table-sm table-bordered table-striped">
+	<tbody><tr>
+		<td rowspan="6">Part 1</td>
+		<td>CatalogueFree</td>
+		<td>See <b>memory errors/leaks</b> section below</td>
+	</tr>
+	<tr>
+		<td>CatalogueInsert</td>
+		<td>4%</td>
+	</tr>
+	<tr>
+		<td>CatalogueDelete</td>
+		<td>4%</td>
+	</tr>
+	<tr>
+		<td>CatalogueNumCourses</td>
+		<td>2%</td>
+	</tr>
+	<tr>
+		<td>CatalogueFind</td>
+		<td>2%</td>
+	</tr>
+	<tr>
+		<td>CataloguePrint</td>
+		<td>4%</td>
+	</tr>
+	<tr>
+		<td rowspan="3">Part 2</td>
+		<td>CatalogueClosest</td>
+		<td>5%</td>
+	</tr>
+	<tr>
+		<td>CatalogueLevelOrder</td>
+		<td>5%</td>
+	</tr>
+	<tr>
+		<td>CatalogueGetRange</td>
+		<td>5%</td>
+	</tr>
+	<tr>
+		<td rowspan="2">Part 3</td>
+		<td>CatalogueInsert (balanced)</td>
+		<td>10%</td>
+	</tr>
+	<tr>
+		<td>CatalogueDelete (balanced)</td>
+		<td>8%</td>
+	</tr>
+	<tr>
+		<td rowspan="3">Part 4</td>
+		<td>CatalogueAtIndex</td>
+		<td>5%</td>
+	</tr>
+	<tr>
+		<td>CatalogueIndexOf</td>
+		<td>5%</td>
+	</tr>
+	<tr>
+		<td>CatalogueCountLower</td>
+		<td>4%</td>
+	</tr>
+	<tr>
+		<td rowspan="1">Part 5</td>
+		<td>CatalogueConstruct</td>
+		<td>5%</td>
+	</tr>
+</tbody></table>
+
+<h5>Efficiency</h5>
+
+<p>You must ensure that your code for parts 1, 3, 4 satisfies the required worst-case time complexities. Additionally, for parts 2 and 5, you must aim to implement your functions as efficiently as possible. Inefficient functions will be penalised by up to half the marks for that function.</p>
+
+<h5>Memory errors/leaks</h5>
+
+<p>You must ensure that your code does not contain memory errors or leaks, as code that contains memory errors is unsafe and it is bad practice to leave memory leaks in your program.</p>
+
+<p>Our tests will include a memory error/leak test for each operation. If a memory error/leak arises from your code, you will receive a penalty which is 10% of the marks for that function. For example, the penalty for causing a memory error/leak in the <code>CatalogueLevelOrder</code> operation will be 0.5%. Note that our tests will always call <code>CatalogueFree</code> at the end of the test to free all memory allocated to the catalogue.</p>
+
+<h4>Complexity analysis</h4>
+
+<p><b>12%</b> of the marks for this assignment will be based on the correctness of your complexity analysis in <code>analysis.txt</code> and the quality of your explanations.</p>
+
+<h4>Testing</h4>
+
+<p><b>10%</b> of the marks for this assignment will be based on the thoroughness of your tests in <code>testCatalogue.c</code>. This is 2% per part of the assignment. Please make sure to add a comment above each new test you add which describes what it is testing - if you do not do this, you may be penalised.</p>
+
+<h4>Style</h4>
+
+<p><b>10%</b> of the marks for this assignment will come from hand marking of the readability of the code you have written. These marks will be awarded on the basis of clarity, commenting, elegance and style. The following is an indicative list of characteristics that will be assessed, though your program will be assessed wholistically so other characteristics may be assessed too (see the <a href="https://cgi.cse.unsw.edu.au/~cs2521/26T2/style-guide" target="_blank">style guide</a> for more details):</p>
+
+<ul>
+	<li>Consistent and sensible indentation and spacing</li>
+	<li>Using blank lines and whitespace</li>
+	<li>Using functions to avoid repeating code</li>
+	<li>Decomposing code into functions and not having overly long functions</li>
+	<li>Using comments effectively and not leaving planning or debugging comments</li>
+</ul>
+
+<p>The course staff may vary the assessment scheme after inspecting the assignment submissions but it will remain broadly similar to the description above.</p>
+</section>
+
+
+<section class="exercise">
+<header><h3>Originality of Work</h3></header>
+<p>This is an individual assignment. The work you submit must be your own work and only your work apart from the exceptions below. Joint work is not permitted. At no point should a student read or have a copy of another student's assignment code.</p>
+
+<p>You may use any amount of code from the lectures and labs of the <b>current iteration</b> of this course. You must clearly attribute the source of this code in a comment. Please see the <a href="https://webcms3.cse.unsw.edu.au/COMP2521/26T2/resources/121301" target="_blank">referencing guide</a> for rules on referencing.</p>
+
+<p>You may use small amounts (&lt; 10 lines) of general purpose code (not specific to the assignment) obtained from sites such as Stack Overflow or other publicly available resources. You must clearly attribute the source of this code in a comment.</p>
+
+<p>You are not permitted to request help with the assignment apart from in the course forum, help sessions or from course lecturers or tutors.</p>
+
+<p>Do not provide or show your assignment work to any other person (including by posting it publicly on the forum) apart from the teaching staff of COMP2521. When posting on the course forum, teaching staff will be able to view the assignment code you have recently submitted with give.</p>
+
+<p>The work you submit must otherwise be entirely your own work. Submission of work partially or completely derived from any other person or jointly written with any other person is not permitted. The penalties for such an offence may include negative marks, automatic failure of the course and possibly other academic discipline. Assignment submissions will be examined both automatically and manually for such issues.</p>
+
+<p>Relevant scholarship authorities will be informed if students holding scholarships are involved in an incident of plagiarism or other misconduct. If you knowingly provide or show your assignment work to another person for any reason, and work derived from it is submitted, then you may be penalised, even if the work was submitted without your knowledge or consent. This may apply even if your work is submitted by a third party unknown to you.</p>
+</section>
+
+
+</div>
+
+
+      </div>
+    </main>
+
+    <footer class="mt-3 py-3 bg-dark text-center no-print" data-bs-theme="dark">
+      <p class="text-muted">
+        <small>
+          <strong>COMP2521 26T2: Data Structures and Algorithms</strong>
+          is brought to you by<br>
+          the <a href="https://www.cse.unsw.edu.au/">School of Computer Science and Engineering</a><br>
+          at the <a href="https://www.unsw.edu.au/">University of New South Wales</a>, Sydney.<br>
+          For all enquiries, please email the class account at
+          <a href="mailto:cs2521@cse.unsw.edu.au">cs2521@cse.unsw.edu.au</a><br>
+          
+          CRICOS Provider 00098G
+        </small>
+      </p>
+    </footer>
+    
+    <script src="./COMP2521 26T2 - Assignment 1_files/bootstrap.bundle.min.js.下载" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <!-- math -->
+    <script src="./COMP2521 26T2 - Assignment 1_files/latest.js.下载" async=""></script>
+    
+    
+  
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
