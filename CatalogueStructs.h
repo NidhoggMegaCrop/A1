@@ -14,7 +14,7 @@
 struct catalogue {
 	struct node *tree;  // DO NOT MODIFY/REMOVE THIS FIELD
 
-	// You may add more fields here if needed
+	int numCourses;
 };
 
 // DO NOT CHANGE THE NAME OF THIS STRUCT
