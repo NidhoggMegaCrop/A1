@@ -41,6 +41,8 @@ static void myTestBalanceInsertRR(void);
 static void myTestBalanceInsertLL(void);
 static void myTestBalanceInsertLRandRL(void);
 static void myTestBalanceDeleteMany(void);
+static void myTestIndexingEmptyAndOutOfRange(void);
+static void myTestIndexingLargerCatalogue(void);
 
 int main(void) {
 	testBasicOperations();
@@ -63,6 +65,8 @@ int main(void) {
 	myTestBalanceDeleteMany();
 
 	testIndexingOperations();
+	myTestIndexingEmptyAndOutOfRange();
+	myTestIndexingLargerCatalogue();
 
 	testConstruct();
 
@@ -511,6 +515,58 @@ static void testIndexingOperations(void) {
 	assert(CatalogueAtIndex(catalogue, 2).code == 2521);
 	assert(CatalogueIndexOf(catalogue, 3121) == 3);
 	assert(CatalogueCountLower(catalogue, 2500) == 2);
+
+	CatalogueFree(catalogue);
+}
+
+// My own test: indexing operations on an empty catalogue and on
+// out-of-range indices should not find anything.
+static void myTestIndexingEmptyAndOutOfRange(void) {
+	Catalogue catalogue = CatalogueNew();
+
+	assert(CatalogueAtIndex(catalogue, 0).code == COURSE_UNDEFINED);
+	assert(CatalogueIndexOf(catalogue, 1511) == -1);
+	assert(CatalogueCountLower(catalogue, 1511) == 0);
+
+	CatalogueInsert(catalogue, 1511, "Programming Fundamentals", 6);
+	CatalogueInsert(catalogue, 2521, "Data Structures and Algorithms", 6);
+
+	// Negative index and index >= numCourses are both out of range
+	assert(CatalogueAtIndex(catalogue, -1).code == COURSE_UNDEFINED);
+	assert(CatalogueAtIndex(catalogue, 2).code == COURSE_UNDEFINED);
+	// A code that doesn't exist has no index
+	assert(CatalogueIndexOf(catalogue, 9999) == -1);
+
+	CatalogueFree(catalogue);
+}
+
+// My own test: indexing operations on a larger catalogue - every index
+// must map back to the correct code (CatalogueAtIndex and
+// CatalogueIndexOf must be inverses of each other), and
+// CatalogueCountLower must agree with the index for existing codes and
+// work correctly for codes that fall in between or outside the range.
+static void myTestIndexingLargerCatalogue(void) {
+	Catalogue catalogue = CatalogueNew();
+	int codes[] = {1511, 1521, 1531, 2521, 3121, 3311, 3331, 3821, 4141};
+	int n = sizeof(codes) / sizeof(codes[0]);
+	for (int i = 0; i < n; i++) {
+		char name[MAX_COURSE_NAME];
+		snprintf(name, sizeof(name), "Course %d", codes[i]);
+		CatalogueInsert(catalogue, codes[i], name, 6);
+	}
+
+	for (int i = 0; i < n; i++) {
+		assert(CatalogueAtIndex(catalogue, i).code == codes[i]);
+		assert(CatalogueIndexOf(catalogue, codes[i]) == i);
+		assert(CatalogueCountLower(catalogue, codes[i]) == i);
+	}
+
+	// A code strictly between two existing codes
+	assert(CatalogueCountLower(catalogue, 3200) == 5);
+	// Below the smallest code
+	assert(CatalogueCountLower(catalogue, 0) == 0);
+	// Above the largest code
+	assert(CatalogueCountLower(catalogue, 9999) == n);
 
 	CatalogueFree(catalogue);
 }
