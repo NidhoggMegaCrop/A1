@@ -26,6 +26,7 @@ static struct node *newNode(int code, char *name, int creditPoints) {
 	n->left = NULL;
 	n->right = NULL;
 	n->height = 0;
+	n->size = 1;
 	return n;
 }
 
@@ -43,10 +44,16 @@ static int height(struct node *n) {
 	return n == NULL ? -1 : n->height;
 }
 
-static void updateHeight(struct node *n) {
+static int size(struct node *n) {
+	return n == NULL ? 0 : n->size;
+}
+
+// Recomputes n's height and size from its (already up-to-date) children.
+static void updateNode(struct node *n) {
 	int lh = height(n->left);
 	int rh = height(n->right);
 	n->height = 1 + (lh > rh ? lh : rh);
+	n->size = 1 + size(n->left) + size(n->right);
 }
 
 static int balanceFactor(struct node *n) {
@@ -57,8 +64,8 @@ static struct node *rotateRight(struct node *y) {
 	struct node *x = y->left;
 	y->left = x->right;
 	x->right = y;
-	updateHeight(y);
-	updateHeight(x);
+	updateNode(y);
+	updateNode(x);
 	return x;
 }
 
@@ -66,15 +73,15 @@ static struct node *rotateLeft(struct node *x) {
 	struct node *y = x->right;
 	x->right = y->left;
 	y->left = x;
-	updateHeight(x);
-	updateHeight(y);
+	updateNode(x);
+	updateNode(y);
 	return y;
 }
 
 // Restores the height-balance property of n assuming both of its
-// subtrees are already height-balanced, and updates n's height.
+// subtrees are already height-balanced, and updates n's height and size.
 static struct node *rebalance(struct node *n) {
-	updateHeight(n);
+	updateNode(n);
 	int bf = balanceFactor(n);
 	if (bf > 1) {
 		if (balanceFactor(n->left) < 0) {
@@ -277,18 +284,47 @@ int CatalogueGetRange(Catalogue catalogue, int lowerCode, int upperCode,
 // Index Operations
 
 struct course CatalogueAtIndex(Catalogue catalogue, int index) {
-	// TODO
-	return (struct course) {COURSE_UNDEFINED, "", 0};
+	if (index < 0 || index >= catalogue->numCourses) {
+		return (struct course){COURSE_UNDEFINED, "", 0};
+	}
+
+	struct node *n = catalogue->tree;
+	while (n != NULL) {
+		int leftSize = size(n->left);
+		if (index < leftSize) {
+			n = n->left;
+		} else if (index == leftSize) {
+			return n->course;
+		} else {
+			index -= leftSize + 1;
+			n = n->right;
+		}
+	}
+	// unreachable since index is within [0, numCourses - 1]
+	return (struct course){COURSE_UNDEFINED, "", 0};
+}
+
+static int indexOf(struct node *n, int code, int offset) {
+	if (n == NULL) return -1;
+	if (code < n->course.code) return indexOf(n->left, code, offset);
+	if (code > n->course.code) {
+		return indexOf(n->right, code, offset + size(n->left) + 1);
+	}
+	return offset + size(n->left);
 }
 
 int CatalogueIndexOf(Catalogue catalogue, int code) {
-	// TODO
-	return -1;
+	return indexOf(catalogue->tree, code, 0);
+}
+
+static int countLower(struct node *n, int code) {
+	if (n == NULL) return 0;
+	if (code <= n->course.code) return countLower(n->left, code);
+	return size(n->left) + 1 + countLower(n->right, code);
 }
 
 int CatalogueCountLower(Catalogue catalogue, int code) {
-	// TODO
-	return 0;
+	return countLower(catalogue->tree, code);
 }
 
 ////////////////////////////////////////////////////////////////////////

@@ -24,6 +24,7 @@ struct node {
 	struct node *right;   // DO NOT MODIFY/REMOVE THIS FIELD
 
 	int height; // height of this subtree, used to keep the tree balanced
+	int size;   // number of nodes in this subtree, used for indexing
 };
 
 // You may define additional structs here if needed
