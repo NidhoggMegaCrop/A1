@@ -23,7 +23,7 @@ struct node {
 	struct node *left;    // DO NOT MODIFY/REMOVE THIS FIELD
 	struct node *right;   // DO NOT MODIFY/REMOVE THIS FIELD
 
-	// You may add more fields here if needed
+	int height; // height of this subtree, used to keep the tree balanced
 };
 
 // You may define additional structs here if needed

@@ -37,6 +37,10 @@ static void myTestDeleteAllNodeShapes(void);
 static void myTestClosestEdgeCases(void);
 static void myTestLevelOrderSingleNode(void);
 static void myTestGetRangeEdgeCases(void);
+static void myTestBalanceInsertRR(void);
+static void myTestBalanceInsertLL(void);
+static void myTestBalanceInsertLRandRL(void);
+static void myTestBalanceDeleteMany(void);
 
 int main(void) {
 	testBasicOperations();
@@ -53,6 +57,10 @@ int main(void) {
 	myTestGetRangeEdgeCases();
 
 	testBalance();
+	myTestBalanceInsertRR();
+	myTestBalanceInsertLL();
+	myTestBalanceInsertLRandRL();
+	myTestBalanceDeleteMany();
 
 	testIndexingOperations();
 
@@ -400,6 +408,92 @@ static bool doIsHeightBalanced(struct node *t, int *height) {
 	if (abs(lh - rh) > 1) return false;
 	*height = (lh > rh ? lh : rh) + 1;
 	return true;
+}
+
+// My own test: inserting in strictly increasing order forces a
+// left rotation (RR case) at every step, and the codes must still be
+// retrievable in the correct order afterwards.
+static void myTestBalanceInsertRR(void) {
+	Catalogue catalogue = CatalogueNew();
+	for (int code = 1000; code < 1000 + 20; code++) {
+		char name[MAX_COURSE_NAME];
+		snprintf(name, sizeof(name), "Course %d", code);
+		CatalogueInsert(catalogue, code, name, 6);
+		assert(isHeightBalanced(catalogue->tree));
+	}
+	assert(CatalogueNumCourses(catalogue) == 20);
+	for (int code = 1000; code < 1000 + 20; code++) {
+		assert(CatalogueFind(catalogue, code).code == code);
+	}
+	CatalogueFree(catalogue);
+}
+
+// My own test: inserting in strictly decreasing order forces a
+// right rotation (LL case) at every step.
+static void myTestBalanceInsertLL(void) {
+	Catalogue catalogue = CatalogueNew();
+	for (int code = 1000 + 20; code > 1000; code--) {
+		char name[MAX_COURSE_NAME];
+		snprintf(name, sizeof(name), "Course %d", code);
+		CatalogueInsert(catalogue, code, name, 6);
+		assert(isHeightBalanced(catalogue->tree));
+	}
+	assert(CatalogueNumCourses(catalogue) == 20);
+	CatalogueFree(catalogue);
+}
+
+// My own test: inserting 30, 10, 20 forces a left-right (LR) double
+// rotation, and inserting 10, 30, 20 forces a right-left (RL) double
+// rotation. Check the tree stays balanced and every code is findable.
+static void myTestBalanceInsertLRandRL(void) {
+	Catalogue lr = CatalogueNew();
+	CatalogueInsert(lr, 30, "C30", 6);
+	CatalogueInsert(lr, 10, "C10", 6);
+	CatalogueInsert(lr, 20, "C20", 6);
+	assert(isHeightBalanced(lr->tree));
+	assert(CatalogueFind(lr, 10).code == 10);
+	assert(CatalogueFind(lr, 20).code == 20);
+	assert(CatalogueFind(lr, 30).code == 30);
+	CatalogueFree(lr);
+
+	Catalogue rl = CatalogueNew();
+	CatalogueInsert(rl, 10, "C10", 6);
+	CatalogueInsert(rl, 30, "C30", 6);
+	CatalogueInsert(rl, 20, "C20", 6);
+	assert(isHeightBalanced(rl->tree));
+	assert(CatalogueFind(rl, 10).code == 10);
+	assert(CatalogueFind(rl, 20).code == 20);
+	assert(CatalogueFind(rl, 30).code == 30);
+	CatalogueFree(rl);
+}
+
+// My own test: repeatedly deleting from a larger balanced catalogue
+// (in an order that forces multiple rebalances) must keep the tree
+// balanced at every step and never lose an undeleted course.
+static void myTestBalanceDeleteMany(void) {
+	Catalogue catalogue = CatalogueNew();
+	int codes[] = {50, 30, 70, 20, 40, 60, 80, 10, 25, 35, 45,
+	               55, 65, 75, 85};
+	int n = sizeof(codes) / sizeof(codes[0]);
+	for (int i = 0; i < n; i++) {
+		char name[MAX_COURSE_NAME];
+		snprintf(name, sizeof(name), "Course %d", codes[i]);
+		CatalogueInsert(catalogue, codes[i], name, 6);
+	}
+	assert(isHeightBalanced(catalogue->tree));
+
+	// Delete every other course, checking balance after each deletion
+	for (int i = 0; i < n; i += 2) {
+		CatalogueDelete(catalogue, codes[i]);
+		assert(isHeightBalanced(catalogue->tree));
+		assert(CatalogueFind(catalogue, codes[i]).code == COURSE_UNDEFINED);
+	}
+	// The untouched courses must still all be present
+	for (int i = 1; i < n; i += 2) {
+		assert(CatalogueFind(catalogue, codes[i]).code == codes[i]);
+	}
+
+	CatalogueFree(catalogue);
 }
 
 ////////////////////////////////////////////////////////////////////////
