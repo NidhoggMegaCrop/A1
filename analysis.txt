@@ -56,10 +56,17 @@ array, giving a total of O(h + k).
     CatalogueConstruct
 --------------------------
 
-Worst-case time complexity:
+Worst-case time complexity: O(n)
 
 Explanation:
-
-
+The array is split recursively: the middle element becomes the root
+of the (sub)tree, and the two halves either side of it are built
+recursively as the left and right subtrees. Each of the n courses is
+used to create exactly one node, and the work done to create a node
+(allocating it and updating its height/size from its already-built
+children) is O(1). Since there are n nodes and each does O(1) work,
+the total time is O(n). Splitting the array in half each time also
+means the two subtrees of any node differ in size by at most one,
+which keeps the resulting tree height-balanced.
 
 
